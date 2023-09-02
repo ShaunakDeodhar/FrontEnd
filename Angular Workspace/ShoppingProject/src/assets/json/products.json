@@ -1,0 +1,26 @@
+[
+    {
+        "productImage": "https://imagescdn.thecollective.in/img/app/product/8/860014-10149149.jpg?", 
+        "productID": "54301", 
+        "productType": "Full Shirt",
+        "productDescription": "Polo Ralph Lauren", 
+        "productPrice": 799, 
+        "productAction": "Buy"
+    },
+    {
+        "productImage": "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/450496/item/goods_53_450496.jpg?width=750", 
+        "productID": "54302",
+        "productType": "Cotton Trousers", 
+        "productDescription": "Linen Tapered Pants", 
+        "productPrice": 1299, 
+        "productAction": "Buy"
+    },
+    {
+        "productImage": "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/444603/item/goods_32_444603.jpg?width=750", 
+        "productID": "54303", 
+        "productType": "Nylon Shorts", 
+        "productDescription": "Utility Geared Shorts",
+        "productPrice": 599, 
+        "productAction": "Buy"
+    }
+]

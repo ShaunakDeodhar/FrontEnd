@@ -1,0 +1,24 @@
+{
+    "questions": [
+        {
+            "question": "What is the pH value of the human body?",
+            "choices": ["9.2 to 9.8", "7.0 to 7.8", "6.1 to 6.3", "5.4 to 5.6"],
+            "answer": "7.0 to 7.8"
+        },
+        {
+            "question": "Which of the following are called \"Key Industrial animals\"?",
+            "choices": ["Producers", "Tertiary consumers", "Primary consumers", "None of these"],
+            "answer": "Primary consumers"
+        },
+        {
+            "question":"Grand Central Terminal, Park Avenue, New York is the world's",
+            "choices":["largest railway station","highest railway station","longest railway station","None of the above"],
+            "answer":"largest railway station"
+        },
+        {
+            "question":"Eritrea, which became the 182nd member of the UN in 1993, is in the continent of",
+            "choices":["Asia","Africa","Europe","Australia"],
+            "answer":"Africa"
+        }
+    ]
+}

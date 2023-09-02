@@ -1,0 +1,78 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <title>Cart page</title>
+</head>
+<body>
+
+    <section>
+        <div class="container">
+            <div class="row d-flex justify-content-center align-items-center" style="margin-top: 50px">
+                <div class="col">
+                    <p><span class="h2" style="color: rgb(34, 34, 34);">Shopping Cart </span><span class="h4" style="color: rgb(34, 34, 34);">(3 items in your cart)</span></p>
+        
+                    <div class="card mb-4" *ngFor="let product of products">
+                        <div class="card-body p-4">
+        
+                            <div class="row align-items-center">
+                                <div class="col-md-2">
+                                    <img src={{product.productImage}}
+                                        class="img-fluid" alt="Generic placeholder image">
+                                </div>
+                                <div class="col-md-2 d-flex justify-content-center">
+                                    <div>
+                                        <p class="small text-muted mb-4 pb-2">Product ID</p>
+                                        <p class=" fw-normal mb-0">{{product.productID}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 d-flex justify-content-center">
+                                    <div>
+                                        <p class="small text-muted mb-4 pb-2">Product Type</p>
+                                        <p class=" fw-normal mb-0">{{product.productType}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 d-flex justify-content-center">
+                                    <div>
+                                        <p class="small text-muted mb-4 pb-2">Product Description</p>
+                                        <p class=" fw-normal mb-0">{{product.productDescription}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 d-flex justify-content-center">
+                                    <div>
+                                        <p class="small text-muted mb-4 pb-2">Price</p>
+                                        <p class=" fw-normal mb-0">{{product.productPrice|currency:'INR'}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 d-flex justify-content-center">
+                                    <div>
+                                        <p class="small text-muted mb-4 pb-2">Product Action</p>
+                                        <p class=" fw-normal mb-0">{{product.productAction}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="card mb-5">
+                        <div class="card-body p-4">
+                
+                            <div class="float-end">
+                                <p class="mb-0 me-5 d-flex align-items-center">
+                                    <span class="small text-muted me-2">Order total:</span>
+                                    <span class="lead fw-normal">{{cartTotal | currency : 'INR'}}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="d-flex justify-content-end" style="margin-bottom: 20px;">
+                        <button type="button" class="btn btn-dark btn-lg me-2">Continue shopping</button>
+                        <button type="button" class="btn btn-secondary btn-lg" (click)="addProduct()">Add to cart</button>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
