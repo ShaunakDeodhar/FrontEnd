@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { __runInitializers } from 'tslib';
 import { AddProductService } from '../add-product.service';
@@ -9,25 +10,53 @@ import { AddProductService } from '../add-product.service';
 })
 export class CartComponent {
   
-  constructor (private addProductObject : AddProductService) {  }
-  products = this.addProductObject.products
+  constructor (private http : HttpClient) {  }
+  products: any[] = []
+  numberOfProducts = "0 items"
+  responseMessage: string = ''
   cartTotal = 0
 
-  calculateCartTotal() {
-    this.products = this.addProductObject.products
-    let productPrices: number[] = []
-    let temp = this.products.forEach(product => {
-      productPrices.push(product.productPrice)
-    });
-    this.cartTotal = productPrices.reduce(function (a, b) {return a + b})
+  getProducts() {
+    this.http.get('http://localhost:3000/getProducts')
+    .subscribe((response: any) => {
+      console.log(response)
+      this.products = response
+      if (this.products.length === 1) {
+        this.numberOfProducts = "1 item"
+      } else {
+        this.numberOfProducts = this.products.length + " items"
+      }
+      this.calculateCartTotal();
+    }, (error) => {
+      console.error('Error in cart.ts for getting products', error)
+    })
   }
 
-  addProduct() {
-    this.addProductObject.products.push({productImage: 'https://assets.ajio.com/medias/sys_master/root/20210312/vWMe/604ae3e9f997dd5c400d64ea/-473Wx593H-462135105-cream-MODEL.jpg', productID: '54304', productType: 'Shoes', productDescription: 'Low-Top Lace-Up Sneakers', productPrice: 2999, productAction: 'Buy'})
-    this.calculateCartTotal()
+  deleteProduct(Id: number) {
+    if (confirm('Are you sure you want to delete this product?')) {
+      this.http.delete('http://localhost:3000/deleteProduct/' + Id)
+      .subscribe((response: any) => {
+        this.responseMessage = response.message
+        this.getProducts()
+      }, (error) => {
+        console.error('Error in cart.ts for deleting product', error)
+      })
+    }
+  }
+
+  calculateCartTotal() {
+    let productPrices: number[] = []
+    let temp = this.products.forEach(product => {
+      productPrices.push(product.Price)
+    });
+    if (productPrices.length > 0) {
+      this.cartTotal = productPrices.reduce(function (a, b) {return a + b})
+    } else {
+      this.cartTotal = 0
+    }
   }
 
   ngOnInit(): void {
-    this.calculateCartTotal();
+    this.getProducts();
   }
 }

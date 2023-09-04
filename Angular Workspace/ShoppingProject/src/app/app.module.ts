@@ -9,10 +9,13 @@ import { RegisterComponent } from './register/register.component';
 import { CartComponent } from './cart/cart.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
+import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
 
 const routes:Routes = [
   {path:'home', component:HomeComponent},
@@ -21,7 +24,9 @@ const routes:Routes = [
   {path:'cart', component:CartComponent},
   {path:'about', component:AboutComponent},
   {path:'contact', component:ContactComponent},
-  {path:'', component:BodyComponent}
+  {path:'', component:BodyComponent},
+  {path:'addProduct', component:AddProductComponent},
+  {path:'editProduct/:Id', component:EditProductComponent}
 ]
 
 @NgModule({
@@ -34,11 +39,14 @@ const routes:Routes = [
     AboutComponent,
     ContactComponent,
     HeaderComponent,
-    BodyComponent
+    BodyComponent,
+    AddProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     RouterModule.forRoot(routes)
   ],

@@ -9,44 +9,47 @@
         <div class="container">
             <div class="row d-flex justify-content-center align-items-center" style="margin-top: 50px">
                 <div class="col">
-                    <p><span class="h2" style="color: rgb(34, 34, 34);">Shopping Cart </span><span class="h4" style="color: rgb(34, 34, 34);">(3 items in your cart)</span></p>
+                    <p><span class="h2" style="color: rgb(34, 34, 34);">Shopping Cart </span><span class="h4" style="color: rgb(34, 34, 34);">({{numberOfProducts}} in your cart)</span></p>
         
                     <div class="card mb-4" *ngFor="let product of products">
                         <div class="card-body p-4">
         
                             <div class="row align-items-center">
                                 <div class="col-md-2">
-                                    <img src={{product.productImage}}
+                                    <img src={{product.ImageLink}}
                                         class="img-fluid" alt="Generic placeholder image">
                                 </div>
                                 <div class="col-md-2 d-flex justify-content-center">
                                     <div>
                                         <p class="small text-muted mb-4 pb-2">Product ID</p>
-                                        <p class=" fw-normal mb-0">{{product.productID}}</p>
+                                        <p class="fw-normal mb-0">{{product.Id}}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-2 d-flex justify-content-center">
                                     <div>
                                         <p class="small text-muted mb-4 pb-2">Product Type</p>
-                                        <p class=" fw-normal mb-0">{{product.productType}}</p>
+                                        <p class="fw-normal mb-0">{{product.Type}}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-2 d-flex justify-content-center">
                                     <div>
                                         <p class="small text-muted mb-4 pb-2">Product Description</p>
-                                        <p class=" fw-normal mb-0">{{product.productDescription}}</p>
+                                        <p class="fw-normal mb-0">{{product.Description}}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-2 d-flex justify-content-center">
                                     <div>
                                         <p class="small text-muted mb-4 pb-2">Price</p>
-                                        <p class=" fw-normal mb-0">{{product.productPrice|currency:'INR'}}</p>
+                                        <p class="fw-normal mb-0">{{product.Price|currency:'INR'}}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-2 d-flex justify-content-center">
                                     <div>
                                         <p class="small text-muted mb-4 pb-2">Product Action</p>
-                                        <p class=" fw-normal mb-0">{{product.productAction}}</p>
+                                        <div class="d-flex">
+                                            <button class="btn btn-dark btn-sm mb-0 d-inline-block" routerLink="/editProduct/{{product.Id}}">Edit</button>
+                                            <button class="btn btn-secondary btn-sm mb-0 d-inline-block mx-2" (click)="deleteProduct(product.Id)">Delete</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +70,7 @@
         
                     <div class="d-flex justify-content-end" style="margin-bottom: 20px;">
                         <button type="button" class="btn btn-dark btn-lg me-2">Continue shopping</button>
-                        <button type="button" class="btn btn-secondary btn-lg" (click)="addProduct()">Add to cart</button>
+                        <button type="button" class="btn btn-secondary btn-lg" routerLink="/addProduct">Add to cart</button>
                     </div>
     
                 </div>

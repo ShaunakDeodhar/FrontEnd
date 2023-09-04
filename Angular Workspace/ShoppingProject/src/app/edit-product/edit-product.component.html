@@ -1,0 +1,35 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <title>Edit Product Page</title>
+</head>
+<body>
+    <div style="margin: auto; width: 50%; margin-top: 50px;">
+        <h1>Edit Product Details</h1>
+        <form class="row g-3" #FormName = "ngForm">
+            <div class="col-md-6">
+                <label for="productID" class="form-label">Product Id</label>
+                <input type="text" class="form-control" name="productID" [(ngModel)]="productID" disabled="true">
+            </div>
+            <div class="col-md-6">
+                <label for="productType" class="form-label">Product Type</label>
+                <input type="text" class="form-control" name="productType" [(ngModel)]="productType">
+            </div>
+            <div class="col-md-6">
+                <label for="productDescription" class="form-label">Product Description</label>
+                <input type="text" class="form-control" name="productDescription" [(ngModel)]="productDescription">
+            </div>
+            <div class="col-md-6">
+                <label for="productPrice" class="form-label">Product Price</label>
+                <input type="text" class="form-control" name="productPrice" [(ngModel)]="productPrice">
+            </div>
+            <div class="col-12">
+                <label for="productImageLink" class="form-label">Product Image Link</label>
+                <input type="text" class="form-control" name="productImageLink" [(ngModel)]="productImageLink">
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-secondary" (click)="updateProduct()">Update Product</button>
+            </div>
+        </form>
+    </div>
+</body>
