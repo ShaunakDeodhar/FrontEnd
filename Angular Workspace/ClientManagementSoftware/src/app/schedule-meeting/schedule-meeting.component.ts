@@ -40,6 +40,7 @@ export class ScheduleMeetingComponent {
       this.endTime = '';
     }, (error) => {
       console.error('Error in TS for scheduling meeting', error)
+      alert('Error in TS for scheduling meeting')
     })
   }
 }

@@ -32,6 +32,7 @@
 **/testem.log
 **/typings
 **/.angular/cache/
+**/target/
 
 # System Files
 .DS_Store
