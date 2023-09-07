@@ -32,6 +32,7 @@ export class CreateClientComponent {
       this.address = '';
     }, (error) => {
       console.error('Error in TS for creating client', error)
+      alert('Error in TS for creating client')
     })
   }
 }

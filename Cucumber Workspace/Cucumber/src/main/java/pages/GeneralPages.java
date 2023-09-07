@@ -1,0 +1,37 @@
+package pages;
+
+import org.openqa.selenium.WebElement;
+
+public class GeneralPages {
+	
+	SeleniumHelper webDriver = new SeleniumHelper();
+	
+	public void login() {
+		try {
+			webDriver.initiateBrowser();
+			webDriver.navigateTo("http://localhost:4200/login");
+			WebElement emailTextBox = webDriver.getElementByXPath("//input[@id='exampleInputEmail1']");
+			webDriver.enterText(emailTextBox, "anna.cooper@gmail.com");
+			WebElement passwordTextBox = webDriver.getElementByXPath("//input[@id='exampleInputPassword1']");
+			webDriver.enterText(passwordTextBox, "123456");
+			WebElement loginButton = webDriver.getElementByXPath("//button[text()='Login']");
+			webDriver.click(loginButton);
+			Thread.sleep(1000);
+		} catch (Exception e) {
+			System.out.println("Exception in login");
+			e.printStackTrace();
+		}
+	}
+	
+	public void logout() {
+		try {
+			WebElement logoutButton = webDriver.getElementByXPath("//a[text()='Logout']");
+			webDriver.click(logoutButton);
+			Thread.sleep(1000);
+			webDriver.closeBrowser();
+		} catch (Exception e) {
+			System.out.println("Exception in logout");
+			e.printStackTrace();
+		}
+	}
+}
