@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,9 +9,23 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  constructor(private router : Router) { }
+  emailId = ''
+  password = ''
+
+  constructor(private http : HttpClient, private router : Router) { }
   
   login() {
-    this.router.navigate(['/createClient'])
+    if (this.emailId !== '') {
+      this.http.get('http://localhost:3000/getUser/' + this.emailId)
+      .subscribe((response : any) => {
+        if (response.length > 0 && this.password === response[0].password) {
+          this.router.navigate(['/viewClient'])
+        } else {
+          alert('Invalid login credentials')
+        }
+      })
+    } else {
+      alert('Invalid login credentials')
+    }
   }
 }

@@ -1,0 +1,12 @@
+package pages;
+
+public class GeneralPages {
+	
+	SeleniumHelper webDriver = new SeleniumHelper();
+	
+	public void login() {
+		webDriver.initiateBrowser();
+		webDriver.navigateTo("http://localhost:4200/login");
+		
+	}
+}

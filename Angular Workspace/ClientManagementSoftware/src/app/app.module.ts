@@ -10,12 +10,19 @@ import { HeaderComponent } from './header/header.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ViewClientsComponent } from './view-clients/view-clients.component';
+import { ViewMeetingsComponent } from './view-meetings/view-meetings.component';
+import { LoginHeaderComponent } from './login-header/login-header.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes : Routes = [
   {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},
   {path: 'createClient', component: CreateClientComponent},
-  {path: 'scheduleMeeting', component: ScheduleMeetingComponent}
+  {path: 'scheduleMeeting', component: ScheduleMeetingComponent},
+  {path: 'viewClient', component: ViewClientsComponent},
+  {path: 'viewMeeting', component: ViewMeetingsComponent},
+  {path: 'register', component: RegisterComponent}
 ]
 
 @NgModule({
@@ -24,7 +31,11 @@ const routes : Routes = [
     CreateClientComponent,
     ScheduleMeetingComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    ViewClientsComponent,
+    ViewMeetingsComponent,
+    LoginHeaderComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

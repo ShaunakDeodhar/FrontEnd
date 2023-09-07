@@ -1,0 +1,26 @@
+package stepdefinitions;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import pages.MeetingManagementPages;
+
+public class MeetingManagementSteps {
+
+	MeetingManagementPages meetingPages = new MeetingManagementPages();
+	
+	@And("user navigates to Schedule Meeting page")
+	public void navigateToScheduleMeeting() {
+		
+	}
+
+	@When("user enters the meeting details")
+	public void enterMeetingDetails() {
+
+	}
+
+	@Then("the meeting is scheduled successfully")
+	public void scheduleMeetingValidation() {
+
+	}
+}

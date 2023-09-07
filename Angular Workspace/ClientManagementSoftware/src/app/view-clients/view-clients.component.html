@@ -1,0 +1,33 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <title>View Client Page</title>
+</head>
+<body>
+    <app-header></app-header>
+    <div class="mx-5 my-5">
+        <h1>Client Details</h1>
+        <section class="section dashboard mt-5">
+            <div class="card overflow-auto">
+                <table class="table table-bordered mb-0">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let client of clients">
+                        <tr>
+                            <td>{{client.emailId}}</td>
+                            <td>{{client.password}}</td>
+                            <td>{{client.name}}</td>
+                            <td>{{client.address}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</body>

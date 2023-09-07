@@ -1,0 +1,64 @@
+package pages;
+
+import org.openqa.selenium.WebElement;
+
+public class MeetingManagementPages {
+
+	SeleniumHelper webDriver = new SeleniumHelper();
+
+	public void navigateToScheduleMeeting() {
+		try {
+			WebElement createClientLink = webDriver.getElementByXPath("//a[text()='Create Client");
+			webDriver.click(createClientLink);
+			Thread.sleep(1000);
+		} catch (Exception e) {
+			System.out.println("Exception in navigateToCreateClient");
+			e.printStackTrace();
+		}
+	}
+
+	public void enterMeetingDetails(String topic, String id, String numberOfPeople, String startDate, String startTime,
+			String endDate, String endTime) {
+		try {
+			WebElement emailTextBox = webDriver.getElementByXPath("//input[@name='meetingTopic");
+			webDriver.enterText(emailTextBox, email);
+
+			WebElement nameTextBox = webDriver.getElementByXPath("//input[@name='meetingId");
+			webDriver.enterText(nameTextBox, name);
+
+			WebElement passwordTextBox = webDriver.getElementByXPath("//input[@name='numberOfPeople");
+			webDriver.enterText(passwordTextBox, password);
+
+			WebElement addressTextBox = webDriver.getElementByXPath("//input[@name='startDate");
+			webDriver.enterText(addressTextBox, address);
+			
+			WebElement addressTextBox = webDriver.getElementByXPath("//input[@name='startTime");
+			webDriver.enterText(addressTextBox, address);
+			
+			WebElement addressTextBox = webDriver.getElementByXPath("//input[@name='endDate");
+			webDriver.enterText(addressTextBox, address);
+			
+			WebElement addressTextBox = webDriver.getElementByXPath("//input[@name='endTime");
+			webDriver.enterText(addressTextBox, address);
+
+			WebElement loginButton = webDriver.getElementByXPath("//button[text()='Schedule Meeting");
+			webDriver.click(loginButton);
+			Thread.sleep(1000);
+		} catch (Exception e) {
+			System.out.println("Exception in createClient");
+			e.printStackTrace();
+		}
+	}
+
+	public String scheduleMeetingValidation() {
+		try {
+			String alertText = webDriver.getAlertText();
+			webDriver.acceptAlert();
+			return alertText;
+		} catch (Exception e) {
+			System.out.println("Exception in createClientValidation");
+			e.printStackTrace();
+			return "";
+		}
+	}
+}

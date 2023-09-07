@@ -4,21 +4,22 @@
     <title>User Login Page</title>
 </head>
 <body>
+    <app-login-header></app-login-header>
     <div style="margin: auto; width: 50%; margin-top: 50px;">
         <h1>User Login</h1>
         <form>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="emailId" class="form-label">Email address</label>
+                <input type="email" class="form-control" name="emailId" aria-describedby="emailHelp" [(ngModel)]="emailId">
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" [(ngModel)]="password">
             </div>
             <button type="button" class="btn btn-secondary" (click)="login()">Login</button>
-            <!-- <p class="lead" style="font-size: 80%;">
+            <p class="lead mt-2" style="font-size: 80%;">
                 New user? Register <a routerLink="/register" class="link-secondary">here</a> 
-            </p> -->
+            </p>
         </form>
     </div>
 </body>

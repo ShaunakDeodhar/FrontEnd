@@ -1,0 +1,11 @@
+package stepdefinitions;
+
+public class GeneralSteps {
+
+	
+	@Given("user is logged into the application")
+	
+	
+	@And("user logs out of the application")
+	
+}

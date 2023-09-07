@@ -1,0 +1,27 @@
+package stepdefinitions;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import pages.ClientManagementPages;
+
+public class ClientManagementSteps {
+	
+	ClientManagementPages clientPage = new ClientManagementPages();
+	
+    @And("user navigates to Create Client page")
+    public void createClient() {
+    	clientPage.createClient("abc@xyz.com", "ABC", "12345", "11, lmn, JKL");
+    }
+    
+    @When("user enters the client details")
+    public void enterClientDetails() {
+
+	}
+    
+    @Then("the client is created successfully")
+    public void createClientValidation() {
+    	
+    }
+    
+}

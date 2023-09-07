@@ -39,6 +39,55 @@ app.listen(port, () => {
 
 // Define the endpoints
 
+// Get user from db
+app.get('/getUser/:emailId', (req, res) => {
+    const emailId = req.params.emailId
+    const query = "select * from Users where emailId = ?"
+    db.query(query, [emailId], (err, result) => {
+        if (err) {
+            console.error("Error in getting user from db", err)
+            res.status(500).json({
+                error: "Error in getting user from db"
+            })
+        } else {
+            res.status(200).json(result)
+        }
+    })
+})
+
+// Insert user in db
+app.post('/addUser', (req, res) => {
+    const {emailId, password, firstName, lastName} = req.body
+    const query = "insert into Users values(?, ?, ?, ?)"
+    db.query(query, [emailId, password, firstName, lastName], (err, result) => {
+        if (err) {
+            console.error("Error in adding user to db", err)
+            res.status(500).json({
+                error: "Error in adding user to db"
+            })
+        } else {
+            res.status(200).json({
+                message: "User added successfully"
+            })
+        }
+    })
+})
+
+// Get all clients
+app.get('/getClients', (req, res) => {
+    const query = "select * from Clients"
+    db.query(query, (err, result) => {
+        if (err) {
+            console.error("Error in getting clients from db", err)
+            res.status(500).json({
+                error: "Error in getting clients from db"
+            })
+        } else {
+            res.status(200).json(result)
+        }
+    })
+})
+
 // Insert client in db
 app.post('/createClient', (req, res) => {
     const {emailId, password, name, address} = req.body
@@ -53,6 +102,21 @@ app.post('/createClient', (req, res) => {
             res.status(200).json({
                 message: "Client added successfully"
             })
+        }
+    })
+})
+
+// Get all meetings
+app.get('/getMeetings', (req, res) => {
+    const query = "select * from Meetings"
+    db.query(query, (err, result) => {
+        if (err) {
+            console.error("Error in getting meetings from db", err)
+            res.status(500).json({
+                error: "Error in getting meetings from db"
+            })
+        } else {
+            res.status(200).json(result)
         }
     })
 })
