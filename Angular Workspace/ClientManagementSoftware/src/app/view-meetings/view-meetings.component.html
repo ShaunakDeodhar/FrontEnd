@@ -10,26 +10,36 @@
         <section class="section dashboard mt-5">
             <div class="card overflow-auto">
                 <table class="table table-bordered mb-0">
-                    <thead class="table-secondary">
+                    <thead class="table-info">
                         <tr>
-                            <th>Meeting ID</th>
-                            <th>Meeting Topic</th>
-                            <th>Number of people</th>
-                            <th>Start Date</th>
-                            <th>Start Time</th>
-                            <th>End Date</th>
-                            <th>End Time</th>
+                            <th class="col">Meeting ID</th>
+                            <th class="col">Meeting Topic</th>
+                            <th class="col">Number of people</th>
+                            <th class="col">Start Date</th>
+                            <th class="col">Start Time</th>
+                            <th class="col">End Date</th>
+                            <th class="col">End Time</th>
+                            <th class="col">Action</th>
                         </tr>
                     </thead>
+                    <tbody [hidden]="noMeetings">
+                        <tr style="height: 500px;">
+                            <td colspan="8" style="text-align: center;" class="align-middle h2">No meetings are scheduled</td>
+                        </tr>
+                    </tbody>
                     <tbody *ngFor="let meeting of meetings">
                         <tr>
-                            <td>{{meeting.meetingId}}</td>
-                            <td>{{meeting.meetingTopic}}</td>
-                            <td>{{meeting.numberOfPeople}}</td>
-                            <td>{{meeting.startDate}}</td>
-                            <td>{{meeting.startTime}}</td>
-                            <td>{{meeting.endDate}}</td>
-                            <td>{{meeting.endTime}}</td>
+                            <td class="align-middle">{{meeting.meetingId}}</td>
+                            <td class="align-middle">{{meeting.meetingTopic}}</td>
+                            <td class="align-middle">{{meeting.numberOfPeople}}</td>
+                            <td class="align-middle">{{meeting.startDate | date}}</td>
+                            <td class="align-middle">{{meeting.startTime | date:'shortTime'}}</td>
+                            <td class="align-middle">{{meeting.endDate | date}}</td>
+                            <td class="align-middle">{{meeting.endTime | date:'shortTime'}}</td>
+                            <td>
+                                <button type="button" class="btn btn-secondary" routerLink="/editMeeting/{{meeting.meetingId}}">Edit</button>
+                                <button type="button" class="btn btn-dark mx-2" (click)="deleteMeeting(meeting.meetingId)">Delete</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

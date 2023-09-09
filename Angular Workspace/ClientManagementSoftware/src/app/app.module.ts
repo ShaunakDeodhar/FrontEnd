@@ -14,6 +14,8 @@ import { ViewClientsComponent } from './view-clients/view-clients.component';
 import { ViewMeetingsComponent } from './view-meetings/view-meetings.component';
 import { LoginHeaderComponent } from './login-header/login-header.component';
 import { RegisterComponent } from './register/register.component';
+import { EditClientComponent } from './edit-client/edit-client.component';
+import { EditMeetingComponent } from './edit-meeting/edit-meeting.component';
 
 const routes : Routes = [
   {path: '', component: LoginComponent},
@@ -22,7 +24,9 @@ const routes : Routes = [
   {path: 'scheduleMeeting', component: ScheduleMeetingComponent},
   {path: 'viewClient', component: ViewClientsComponent},
   {path: 'viewMeeting', component: ViewMeetingsComponent},
-  {path: 'register', component: RegisterComponent}
+  {path: 'register', component: RegisterComponent},
+  {path: 'editClient/:emailId', component: EditClientComponent},
+  {path: 'editMeeting/:meetingId', component: EditMeetingComponent}
 ]
 
 @NgModule({
@@ -35,7 +39,9 @@ const routes : Routes = [
     ViewClientsComponent,
     ViewMeetingsComponent,
     LoginHeaderComponent,
-    RegisterComponent
+    RegisterComponent,
+    EditClientComponent,
+    EditMeetingComponent
   ],
   imports: [
     BrowserModule,

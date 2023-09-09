@@ -18,6 +18,9 @@ export class ScheduleMeetingComponent {
   constructor(private http : HttpClient) { }
 
   scheduleMeeting() {
+    console.log('Start time ' + this.startTime)
+    const utcStartTime = new Date(this.startDate + 'T' + this.startTime + 'Z')
+    console.log(utcStartTime)
     const meeting = {
       meetingTopic: this.meetingTopic,
       meetingId: this.meetingId,

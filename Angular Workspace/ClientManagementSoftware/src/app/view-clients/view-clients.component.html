@@ -10,20 +10,30 @@
         <section class="section dashboard mt-5">
             <div class="card overflow-auto">
                 <table class="table table-bordered mb-0">
-                    <thead class="table-secondary">
+                    <thead class="table-info">
                         <tr>
                             <th>Email</th>
                             <th>Password</th>
                             <th>Name</th>
                             <th>Address</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
+                    <tbody [hidden]="noClients">
+                        <tr style="height: 500px;">
+                            <td colspan="5" style="text-align: center;" class="align-middle h2">No clients are created</td>
+                        </tr>
+                    </tbody>
                     <tbody *ngFor="let client of clients">
                         <tr>
                             <td>{{client.emailId}}</td>
                             <td>{{client.password}}</td>
                             <td>{{client.name}}</td>
                             <td>{{client.address}}</td>
+                            <td>
+                                <button type="button" class="btn btn-secondary" routerLink="/editClient/{{client.emailId}}">Edit</button>
+                                <button type="button" class="btn btn-dark mx-2" (click)="deleteClient(client.emailId)">Delete</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class ViewClientsComponent {
   clients: any[] = []
+  noClients = true
 
   constructor(private http : HttpClient) { }
 
@@ -15,6 +16,11 @@ export class ViewClientsComponent {
     this.http.get('http://localhost:3000/getClients')
     .subscribe((response : any) => {
       this.clients = response
+      if (this.clients.length === 0) {
+        this.noClients = false
+      } else {
+        this.noClients = true
+      }
     }, (error) => {
       console.log('Error in getting clients from db')
     })
@@ -22,5 +28,16 @@ export class ViewClientsComponent {
 
   ngOnInit() {
     this.getClients()
+  }
+
+  deleteClient(emailId: string) {
+    this.http.delete('http://localhost:3000/deleteClient/' + emailId)
+    .subscribe((response : any) => {
+      alert(response.message)
+      this.getClients()
+    }, (error) => {
+      console.log('Error in deleting client from db')
+      alert('Error in deleting client from db')
+    })
   }
 }
